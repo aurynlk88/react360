@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -26,24 +25,13 @@ setNumber(newData)
   };
 
   return (
-    <div className={classes.root}>
-      <Typography id="continuous-slider" gutterBottom>
-        360 Image view <br />
-  
-      </Typography>
-      <img src={require(`./Car-Images/car-${number}.png`).default} width='800' height='400' />
-      <Grid container spacing={2}>
-        <Grid item>
-          <FiberManualRecordOutlinedIcon />
-        </Grid>
-        <Grid item xs>
-          <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
-        </Grid>
-        <Grid item>
-        <FiberManualRecordOutlinedIcon />
-        </Grid>
-      </Grid>
+    <Grid alignContent='center' className={classes.root}
+    >
+      <Box maxWidth={300}  container spacing={2}>
+      <img src={require(`./images/img${number}.png`).default} width="300" height="auto" />
+          <Slider color="secondary" value={value} onChange={handleChange} aria-labelledby="input-slide" />
+      </Box>
       
-    </div>
+    </Grid>
   );
 }
